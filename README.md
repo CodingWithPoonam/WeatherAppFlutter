@@ -14,3 +14,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+![Simulator Screenshot - iPhone 15 Pro - 2024-04-16 at 20 29 32](https://github.com/CodingWithPoonam/WeatherAppFlutter/assets/163306834/9f5f189a-a6b7-4fe3-ac6c-e6f7ddd863eb)
