@@ -9,7 +9,6 @@ import 'package:http/http.dart' as http;
 final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
-
   //bloc
   sl.registerFactory(() => WeatherBloc(sl()));
 
@@ -18,18 +17,15 @@ Future<void> initializeDependencies() async {
 
   // repository
   sl.registerLazySingleton<WeatherRepository>(
-        () => WeatherRepositoryImpl(
-        weatherRemoteDataSource: sl()
-    ),
+    () => WeatherRepositoryImpl(weatherRemoteDataSource: sl()),
   );
   // data source
   sl.registerLazySingleton<WeatherRemoteDataSource>(
-        () => WeatherRemoteDataSourceImpl(
+    () => WeatherRemoteDataSourceImpl(
       client: sl(),
     ),
   );
 
   // external
   sl.registerLazySingleton(() => http.Client());
-
 }

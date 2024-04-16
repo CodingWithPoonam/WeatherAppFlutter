@@ -8,12 +8,13 @@ import 'package:weather_app/domain/entities/weather.dart';
 import 'package:weather_app/domain/repositories/weather_repository.dart';
 
 class WeatherRepositoryImpl extends WeatherRepository {
-
   final WeatherRemoteDataSource weatherRemoteDataSource;
+
   WeatherRepositoryImpl({required this.weatherRemoteDataSource});
 
   @override
-  Future < Either < Failure, WeatherEntity >> getCurrentWeather(String cityName) async {
+  Future<Either<Failure, WeatherEntity>> getCurrentWeather(
+      String cityName) async {
     try {
       final result = await weatherRemoteDataSource.getCurrentWeather(cityName);
       return Right(result.toEntity());

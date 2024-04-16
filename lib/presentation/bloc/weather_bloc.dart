@@ -8,19 +8,20 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final GetCurrentWeatherUseCase _getCurrentWeatherUseCase;
 
   WeatherBloc(this._getCurrentWeatherUseCase) : super(WeatherEmpty()) {
-    on<OnCityChanged>((event, emit) async {
-      emit(WeatherLoading());
-      final result = await _getCurrentWeatherUseCase.execute(event.cityName);
-      result.fold(
-          (failure){
+    on<OnCityChanged>(
+      (event, emit) async {
+        emit(WeatherLoading());
+        final result = await _getCurrentWeatherUseCase.execute(event.cityName);
+        result.fold(
+          (failure) {
             emit(WeatherLoadFailue(failure.message));
           },
-          (data){
-           emit(WeatherLoaded(data));
+          (data) {
+            emit(WeatherLoaded(data));
           },
-      );
-    },
-        transformer: debounce(const Duration(milliseconds: 500)),
+        );
+      },
+      transformer: debounce(const Duration(milliseconds: 500)),
     );
   }
 }

@@ -25,18 +25,15 @@ void main() {
 
   const testCityName = 'Riga';
 
-  test('should get current weather detail from the repository',
-          () async {
+  test('should get current weather detail from the repository', () async {
     //arrange
-    when(
-        mockWeatherRepository.getCurrentWeather(testCityName)
-    ).thenAnswer((_) async => const Right(testWeatherDetail));
+    when(mockWeatherRepository.getCurrentWeather(testCityName))
+        .thenAnswer((_) async => const Right(testWeatherDetail));
 
     //act
-    final result= await getCurrentWeatherUseCase.execute(testCityName);
+    final result = await getCurrentWeatherUseCase.execute(testCityName);
 
     //assert
     expect(result, const Right(testWeatherDetail));
-  }
-  );
+  });
 }
