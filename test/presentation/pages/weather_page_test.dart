@@ -57,7 +57,6 @@ void main() {
     expect(find.text('Riga'), findsOneWidget);
   });
 
-
   testWidgets(
     'should show progress indicator when state is loading',
     (widgetTester) async {
@@ -74,7 +73,7 @@ void main() {
 
   testWidgets(
     'should show widget contain weather data when state is weather loaded',
-        (widgetTester) async {
+    (widgetTester) async {
       await widgetTester.runAsync(() async {
         //arrange
         when(() => mockWeatherBloc.state)
@@ -88,6 +87,4 @@ void main() {
       });
     },
   );
-
- 
 }
