@@ -26,40 +26,31 @@ void main() {
       humidity: 20);
 
   const testCityName = 'Riga';
-  test(
-    'initial state should be empty',(){
-      expect(weatherBloc.state, WeatherEmpty());
+  test('initial state should be empty', () {
+    expect(weatherBloc.state, WeatherEmpty());
   });
-  blocTest<WeatherBloc,WeatherState>(
+  blocTest<WeatherBloc, WeatherState>(
       'should emit [WeatherLoading, WeatherLoaded] when data is gotten successfully',
       build: () {
-        when(
-            mockGetCurrentWeatherUseCase.execute(testCityName)
-        ).thenAnswer((_) async => const Right(testWeather));
+        when(mockGetCurrentWeatherUseCase.execute(testCityName))
+            .thenAnswer((_) async => const Right(testWeather));
         return weatherBloc;
       },
       act: (bloc) => bloc.add(const OnCityChanged(testCityName)),
       wait: const Duration(milliseconds: 500),
-      expect: () => [
-        WeatherLoading(),
-        const WeatherLoaded(testWeather)
-      ]
-  );
+      expect: () => [WeatherLoading(), const WeatherLoaded(testWeather)]);
 
-  blocTest<WeatherBloc,WeatherState>(
+  blocTest<WeatherBloc, WeatherState>(
       'should emit [WeatherLoading, WeatherLoadFailure] when get data is unsuccessful',
       build: () {
-        when(
-            mockGetCurrentWeatherUseCase.execute(testCityName)
-        ).thenAnswer((_) async => const Left(ServerFailure('Server failure')));
+        when(mockGetCurrentWeatherUseCase.execute(testCityName)).thenAnswer(
+            (_) async => const Left(ServerFailure('Server failure')));
         return weatherBloc;
       },
       act: (bloc) => bloc.add(const OnCityChanged(testCityName)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
-        WeatherLoading(),
-        const WeatherLoadFailue('Server failure'),
-      ]
-  );
-
+            WeatherLoading(),
+            const WeatherLoadFailue('Server failure'),
+          ]);
 }

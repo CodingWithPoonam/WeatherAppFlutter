@@ -8,9 +8,7 @@ import 'package:weather_app/domain/usecases/get_current_weather.dart';
   WeatherRepository,
   WeatherRemoteDataSource,
   GetCurrentWeatherUseCase,
-],
-customMocks: [MockSpec<http.Client>(as: #MockHttpClient)]
-)
-void main(){
-
-}
+], customMocks: [
+  MockSpec<http.Client>(as: #MockHttpClient)
+])
+void main() {}
