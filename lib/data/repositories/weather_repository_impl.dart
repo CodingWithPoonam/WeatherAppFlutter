@@ -7,19 +7,20 @@ import 'package:weather_app/data/data_sources/remote_data_sources.dart';
 import 'package:weather_app/domain/entities/weather.dart';
 import 'package:weather_app/domain/repositories/weather_repository.dart';
 
-class WeatherRemoteDataSourceImpl extends WeatherRepository{
-   final WeatherRemoteDataSource weatherRemoteDataSource;
-   WeatherRemoteDataSourceImpl({required this.weatherRemoteDataSource});
+class WeatherRepositoryImpl extends WeatherRepository {
+
+  final WeatherRemoteDataSource weatherRemoteDataSource;
+  WeatherRepositoryImpl({required this.weatherRemoteDataSource});
 
   @override
-  Future<Either<Failure, WeatherEntity>> getCurrentWeather(String cityName) async {
-    try{
+  Future < Either < Failure, WeatherEntity >> getCurrentWeather(String cityName) async {
+    try {
       final result = await weatherRemoteDataSource.getCurrentWeather(cityName);
       return Right(result.toEntity());
     } on ServerException {
-      return const Left(ServerFailure('An error has occured'));
-    } on SocketException{
-      return const Left(ConnectionFailure('Failed to connect to the netwrok'));
+      return const Left(ServerFailure('An error has occurred'));
+    } on SocketException {
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     }
   }
 }
