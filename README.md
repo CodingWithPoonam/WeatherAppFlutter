@@ -81,7 +81,7 @@ flutter pub run build_runner build --delete-conflicting-outputs
 - finally, on Mobile
 
 ```bash
-flutter run lib/main.dart --flavor dev
+flutter run lib/main.dart
 ```
 
 - or Web
