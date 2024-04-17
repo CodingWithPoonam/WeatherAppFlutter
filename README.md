@@ -96,7 +96,11 @@ Additionally
 
 You can get all available commands for Flutter on the [Flutter CLI page](https://flutter.dev/docs/reference/flutter-cli)
 
-
+- Key Features:
+  
+Test-Driven Development (TDD): This project emphasizes the importance of writing tests before writing the actual code. It ensures that the application's logic is thoroughly tested, enhancing reliability and maintainability.
+Clean Architecture: The app follows a clean and modular architecture that separates concerns into different layers: Presentation, Domain, and Data. This architecture promotes code reusability and makes it easier to adapt to changes in the future.
+BLoC State Management: The app utilizes the BLoC pattern for state management. BLoC helps manage the flow of data and business logic in a clean and reactive manner, improving overall app performance.
 
 
 ![Simulator Screenshot - iPhone 15 Pro - 2024-04-16 at 20 29 32](https://github.com/CodingWithPoonam/WeatherAppFlutter/assets/163306834/9f5f189a-a6b7-4fe3-ac6c-e6f7ddd863eb)
