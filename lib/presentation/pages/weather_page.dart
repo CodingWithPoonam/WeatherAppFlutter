@@ -71,7 +71,7 @@ class WeatherPage extends StatelessWidget {
                         ),
                         Image(
                           image: NetworkImage(
-                            Urls.weatherIcon(
+                            ApiService.weatherIcon(
                               state.result.iconCode,
                             ),
                           ),

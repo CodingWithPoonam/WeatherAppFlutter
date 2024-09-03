@@ -23,7 +23,7 @@ void main() {
     test('should return weather model when the response code is 200', () async {
       //arrange
       when(mockHttpClient
-              .get(Uri.parse(Urls.currentWeatherByName(testCityName))))
+              .get(Uri.parse(ApiService.currentWeatherByName(testCityName))))
           .thenAnswer((_) async => http.Response(
               readJson('helpers/dummy_data/dummy_weather_response.json'), 200));
 
@@ -40,7 +40,7 @@ void main() {
         //arrange
         when(
           mockHttpClient
-              .get(Uri.parse(Urls.currentWeatherByName(testCityName))),
+              .get(Uri.parse(ApiService.currentWeatherByName(testCityName))),
         ).thenAnswer((_) async => http.Response('Not found', 404));
 
         //act

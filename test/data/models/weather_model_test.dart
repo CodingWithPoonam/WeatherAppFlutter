@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_app/data/models/weather_model.dart';
 import 'package:weather_app/domain/entities/weather.dart';
 
-import '';
 import '../../helpers/json_reader.dart';
 
 void main() {
@@ -21,7 +20,7 @@ void main() {
     // assert
     expect(testWeatherModel, isA<WeatherEntity>());
   });
-  test('showuld return a valid model from json', () async {
+  test('should return a valid model from json', () async {
     //arrange
     final Map<String, dynamic> jsonMap =
         json.decode(readJson('helpers/dummy_data/dummy_weather_response.json'));
