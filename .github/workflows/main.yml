@@ -25,6 +25,8 @@ jobs:
           architecture: x64
 
       - run: flutter build apk --release --split-per-abi
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
       - run: |
           flutter build ios --no-codesign
           cd build/ios/iphoneos
