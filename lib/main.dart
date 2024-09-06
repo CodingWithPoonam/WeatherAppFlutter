@@ -7,7 +7,7 @@ import 'package:weather_app/presentation/bloc/weather_bloc.dart';
 import 'package:weather_app/presentation/pages/weather_page.dart';
 
 void main() async{
-  await dotenv.load();
+  await dotenv.load(fileName: "assets/.env");
   initializeDependencies();
   runApp(const MyApp());
 }
