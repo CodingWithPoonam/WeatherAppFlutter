@@ -49,6 +49,10 @@ jobs:
         with:
           channel: 'stable'
           architecture: x64
+      - name: Create .env file
+        run: |
+          mkdir -p assets
+          echo "API_KEY=${{ secrets.API_KEY }}" > assets/.env
       - run: flutter build ios --no-codesign
       - name: Create IPA file
         run: |
